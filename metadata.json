@@ -1,0 +1,8 @@
+{
+  "name": "Diamond AI - Europa Edition",
+  "description": "An advanced AI-powered softball and baseball training platform. From the icy depths of Europa to your diamond, we bring extraterrestrial precision to your game mechanics.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
