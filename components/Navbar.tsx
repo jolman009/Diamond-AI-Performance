@@ -1,6 +1,7 @@
 import React from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { ViewState } from '../types';
-import { Activity, Camera, Brain, Trophy, User, LayoutDashboard } from 'lucide-react';
+import { Activity, Camera, Brain, Trophy, User, LayoutDashboard, Upload } from 'lucide-react';
 
 interface NavbarProps {
   currentView: ViewState;
@@ -8,6 +9,9 @@ interface NavbarProps {
 }
 
 const Navbar: React.FC<NavbarProps> = ({ currentView, setCurrentView }) => {
+  const location = useLocation();
+  const isUploadPage = location.pathname === '/app/upload';
+
   const navItems = [
     { id: ViewState.DASHBOARD, label: 'Locker Room', icon: LayoutDashboard },
     { id: ViewState.ANALYZER, label: 'AI Analyzer', icon: Camera },
@@ -27,10 +31,11 @@ const Navbar: React.FC<NavbarProps> = ({ currentView, setCurrentView }) => {
       <div className="flex md:flex-col justify-around md:justify-start md:p-4 h-16 md:h-auto">
         {navItems.map((item) => {
           const Icon = item.icon;
-          const isActive = currentView === item.id;
+          const isActive = currentView === item.id && !isUploadPage;
           return (
-            <button
+            <Link
               key={item.id}
+              to="/app"
               onClick={() => setCurrentView(item.id)}
               className={`flex flex-col md:flex-row items-center md:p-3 md:mb-2 rounded-xl transition-all duration-200 ${
                 isActive
@@ -40,9 +45,22 @@ const Navbar: React.FC<NavbarProps> = ({ currentView, setCurrentView }) => {
             >
               <Icon className={`w-6 h-6 md:mr-3 ${isActive ? 'stroke-2' : 'stroke-1'}`} />
               <span className="text-xs md:text-sm font-medium mt-1 md:mt-0">{item.label}</span>
-            </button>
+            </Link>
           );
         })}
+
+        {/* Upload Link */}
+        <Link
+          to="/app/upload"
+          className={`flex flex-col md:flex-row items-center md:p-3 md:mb-2 rounded-xl transition-all duration-200 ${
+            isUploadPage
+              ? 'text-cyan-400 bg-slate-800'
+              : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
+          }`}
+        >
+          <Upload className={`w-6 h-6 md:mr-3 ${isUploadPage ? 'stroke-2' : 'stroke-1'}`} />
+          <span className="text-xs md:text-sm font-medium mt-1 md:mt-0">Upload</span>
+        </Link>
       </div>
       
       <div className="hidden md:block mt-auto p-4 border-t border-slate-700">
