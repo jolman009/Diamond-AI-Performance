@@ -55,7 +55,7 @@ const LoginPage: React.FC = () => {
             <span className="text-3xl font-bold text-white">Diamond AI</span>
           </div>
           <h1 className="text-2xl font-bold text-white mb-2">Welcome Back</h1>
-          <p className="text-slate-400">Sign in to continue your training journey</p>
+          <p className="text-slate-400">Sign in to continue your training journey at Diamond AI.</p>
         </div>
 
         {/* Login Form Card */}
