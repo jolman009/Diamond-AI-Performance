@@ -12,9 +12,28 @@ View your app in AI Studio: https://ai.studio/apps/drive/17OBgXxqLKqYdIidwx_g_3p
 
 **Prerequisites:**  Node.js
 
-
 1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
+   ```bash
+   pnpm install
+   ```
+
+2. Set up environment variables:
+   - Copy `.env.example` to `.env`:
+     ```bash
+     cp .env.example .env
+     ```
+   - Fill in all the required values in `.env` (see `.env.example` for reference)
+   - **Important**: Never commit your `.env` file to version control
+
 3. Run the app:
-   `npm run dev`
+   ```bash
+   pnpm dev
+   ```
+
+## Environment Variables
+
+See `.env.example` for all required environment variables. For detailed setup instructions, see [SETUP.md](SETUP.md).
+
+## GitHub Secrets for Deployment
+
+For CI/CD deployment, set up GitHub Secrets as described in [GITHUB_SECRETS_SETUP.md](GITHUB_SECRETS_SETUP.md).
