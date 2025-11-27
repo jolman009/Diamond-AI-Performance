@@ -52,7 +52,7 @@ const LoginPage: React.FC = () => {
         <div className="text-center mb-8">
           <div className="flex items-center justify-center space-x-2 mb-4">
             <Sparkles className="w-10 h-10 text-blue-400" />
-            <span className="text-3xl font-bold text-white">Diamond AI</span>
+            <span className="text-3xl font-bold text-white">Diamond AI Training Platform</span>
           </div>
           <h1 className="text-2xl font-bold text-white mb-2">Welcome Back</h1>
           <p className="text-slate-400">Sign in to continue your training journey at Diamond AI.</p>
